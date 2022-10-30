@@ -1,0 +1,32 @@
+{
+  "name": "formily-demos",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build"
+  },
+  "dependencies": {
+    "@douyinfe/semi-icons": "^2.22.1",
+    "@douyinfe/semi-ui": "^2.22.1",
+    "@formily/core": "^2.2.10",
+    "@formily/react": "^2.2.10",
+    "@formily/reactive": "^2.2.10",
+    "@formily/semi": "1.0.1-beta.10",
+    "@formily/shared": "^2.2.10",
+    "clsx": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "umi": "^4.0.28",
+    "valtio": "^1.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.45",
+    "@types/react": "^17.0.52",
+    "@types/react-dom": "^17.0.18",
+    "@types/react-router-dom": "^5.3.3",
+    "sass": "^1.55.0",
+    "tailwindcss": "^3.2.1",
+    "typescript": "^4.8.4"
+  }
+}
