@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
 import { FormProvider } from '@formily/react'
-import { createForm } from '@formily/core'
+import { createForm, onFormValuesChange } from '@formily/core'
 import { Button, SchemaField } from '@formily/semi'
 import { observable } from '@formily/reactive'
+import { ArrayInput } from './title'
 
 const auto = observable({
   a: 1
@@ -35,6 +36,12 @@ const schema = {
       'x-reactions': (field) => {
         field.value = String(auto.a)
       }
+    },
+    array: {
+      type: 'string',
+      title: '数组输入框',
+      'x-decorator': 'FormItem',
+      'x-component': 'ArrayInput'
     }
   }
 }
@@ -42,21 +49,28 @@ const schema = {
 export default () => {
   const form = useMemo(() => {
     return createForm({
-      initialValues: {}
+      initialValues: {},
+      effects() {
+        onFormValuesChange((form) => {
+          console.log(form.values)
+        })
+      }
     })
   }, [])
 
   return (
     <div>
-      <Button
-        onClick={() => {
-          auto.a += 1
-        }}
-      >
-        Value + 1
-      </Button>
+      <div className="mb-3">
+        <Button
+          onClick={() => {
+            auto.a += 1
+          }}
+        >
+          Value + 1
+        </Button>
+      </div>
       <FormProvider form={form}>
-        <SchemaField schema={schema} />
+        <SchemaField schema={schema} components={{ ArrayInput }} />
       </FormProvider>
     </div>
   )
